@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">BLU</string>
+    <string name="title_activity_sing_in">Bienvenido a BLU</string>
+
+
+    <!-- SINGLES-->
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="sign_in">Iniciar sesión</string>
+
+
+    <!-- MESSAGES-->
+    <string name="error_network">Hubo un problema en la conexión a la red</string>
+    <string name="error_invalid_email">Este email es invalido</string>
+    <string name="error_invalid_password">El password es demasiado corto</string>
+    <string name="error_incorrect_password">Usurio o Contraseña incorrectos</string>
+    <string name="error_field_required">Este campo es requerido</string>
+
+    <!-- LABELS-->
+    <string name="sign_in_short">Login</string>
+    <string name="title_activity_service_list">Planilla</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_map_tracker">Monitor de Servicio</string>
+
+
+</resources>
