@@ -7,22 +7,39 @@
     <string name="email">Email</string>
     <string name="password">Contraseña</string>
     <string name="sign_in">Iniciar sesión</string>
+    <string name="start">Inicar</string>
+    <string name="finish">Finalizar</string>
+    <string name="speed">Speed</string>
+    <string name="distance">Distance</string>
 
 
     <!-- MESSAGES-->
     <string name="error_network">Hubo un problema en la conexión a la red</string>
+    <string name="msg_failed_result_service">No se pudierón enviar los datos de este servicio a la central, intentalo luego.</string>
     <string name="error_invalid_email">Este email es invalido</string>
     <string name="error_invalid_password">El password es demasiado corto</string>
     <string name="error_incorrect_password">Usurio o Contraseña incorrectos</string>
     <string name="error_field_required">Este campo es requerido</string>
+    <string name="msg_tracking_in_progress">El rastreo del recorrio continua ejecutandose</string>
+    <string name="msg_leave_track_map">Asegurate de dar por terminado el servicio, antes de abondar esta pantalla</string>
+    <string name="notif_adress_not_found">Dirección no encontrada.</string>
+    <string name="msg_want_finish_service">¿En realidad deseas dar por terminado el servicio?</string>
+    <string name="illegal_argument_exception">illegal_argument_exception</string>
+    <string name="msg_waiting_for_estable_gps">Esperando señal estable del GPS, procure estar en un espacio abierto.&#8230;</string>
 
-    <!-- LABELS-->
+
+    <!-- TAGS-->
+    <string name="tag_start_tracking">Iniciar Recorrido</string>
+    <string name="tag_finish_tracking">Finalizar Recorrido</string>
     <string name="sign_in_short">Login</string>
-    <string name="title_activity_service_list">Planilla</string>
+    <string name="tag_tracking_in_progress">Tracking en ejecución</string>
+    <string name="address_output_string">%1$s %2$s</string>
 
+    <!-- AUTOMATE TITLES-->
+    <string name="title_activity_service_list">Planilla</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_map_tracker">Monitor de Servicio</string>
-
+    <string name="title_activity_finish_service">Servicio Finalizado</string>
 
 </resources>

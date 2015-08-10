@@ -10,8 +10,8 @@ public class Service {
 
     public String id;
     public String username;
-    public String pickupAdrress;
-    public String arrivalAdress;
+    public String pickupAddress;
+    public String arrivalAddress;
     public String price;
     public String date;
     public String zone;
@@ -27,14 +27,15 @@ public class Service {
     public static final String KEY_ZONE="rate";
     public static final String KEY_PAYMENT="payment";
     public static final String KEY_STATE="state_name";
+    public static final String KEY_JSON="service_JSON";
 
 
-    public Service(String username,String pickupAdrress,String arrivalAdress,String price,String date,
+    public Service(String username,String pickupAddress,String arrivalAddress,String price,String date,
                    String zone,String payment,String state){
 
         this.username=username;
-        this.pickupAdrress=pickupAdrress;
-        this.arrivalAdress=arrivalAdress;
+        this.pickupAddress=pickupAddress;
+        this.arrivalAddress=arrivalAddress;
         this.price=price;
         this.date=date;
         this.zone=zone;
@@ -54,10 +55,10 @@ public class Service {
                 this.username = jsonObject.getString(KEY_USERNAME);
             }
             if(jsonObject.has(KEY_ARRIVAL_ADDRESS)) {
-                this.arrivalAdress = jsonObject.getString(KEY_ARRIVAL_ADDRESS);
+                this.arrivalAddress = jsonObject.getString(KEY_ARRIVAL_ADDRESS);
             }
             if(jsonObject.has(KEY_PICKUP_ADDRESS)) {
-                this.pickupAdrress = jsonObject.getString(KEY_PICKUP_ADDRESS);
+                this.pickupAddress = jsonObject.getString(KEY_PICKUP_ADDRESS);
             }
             if(jsonObject.has(KEY_PRICE)) {
                 this.price = jsonObject.getString(KEY_PRICE);
@@ -80,6 +81,46 @@ public class Service {
 
     }
 
+    public Service (String jsonServiceString){
+
+        try{
+
+            JSONObject jsonObject=new JSONObject(jsonServiceString);
+
+            if(jsonObject.has(KEY_ID)) {
+                this.id = jsonObject.getString(KEY_ID);
+            }
+
+            if(jsonObject.has(KEY_USERNAME)) {
+                this.username = jsonObject.getString(KEY_USERNAME);
+            }
+            if(jsonObject.has(KEY_ARRIVAL_ADDRESS)) {
+                this.arrivalAddress = jsonObject.getString(KEY_ARRIVAL_ADDRESS);
+            }
+            if(jsonObject.has(KEY_PICKUP_ADDRESS)) {
+                this.pickupAddress = jsonObject.getString(KEY_PICKUP_ADDRESS);
+            }
+            if(jsonObject.has(KEY_PRICE)) {
+                this.price = jsonObject.getString(KEY_PRICE);
+            }
+            if(jsonObject.has(KEY_DATE)) {
+                this.date = jsonObject.getString(KEY_DATE);
+            }
+            if(jsonObject.has(KEY_ZONE)) {
+                this.zone = jsonObject.getString(KEY_ZONE);
+            }
+            if(jsonObject.has(KEY_PAYMENT)) {
+                this.payment = jsonObject.getString(KEY_PAYMENT);
+            }
+            if(jsonObject.has(KEY_STATE)) {
+                this.state = jsonObject.getString(KEY_STATE);
+            }
+
+        }catch(JSONException e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public String toString(){
 
@@ -92,11 +133,11 @@ public class Service {
             if(username!=null){
                 jsonObject.put(KEY_USERNAME,username);
             }
-            if(pickupAdrress!=null){
-                jsonObject.put(KEY_PICKUP_ADDRESS,pickupAdrress);
+            if(pickupAddress!=null){
+                jsonObject.put(KEY_PICKUP_ADDRESS,pickupAddress);
             }
-            if(arrivalAdress!=null){
-                jsonObject.put(KEY_ARRIVAL_ADDRESS,arrivalAdress);
+            if(arrivalAddress!=null){
+                jsonObject.put(KEY_ARRIVAL_ADDRESS,arrivalAddress);
             }
             if(price!=null){
                 jsonObject.put(KEY_PRICE,price);

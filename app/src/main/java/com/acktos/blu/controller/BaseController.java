@@ -15,7 +15,6 @@ public class BaseController {
     public static final String TOKEN="ee8099de39d5167fe135baf92fa0df1c";
 
 
-
     /**
      * API RESTfull endpoints
      */
@@ -23,6 +22,8 @@ public class BaseController {
 
         DRIVER_LOGIN("http://www.blue.acktos.com.co/login_driver/"),
         AVAILABLE_SERVICES("http://www.blue.acktos.com.co/find_driver_services/"),
+        SEND_TRACKING("http://www.blue.acktos.com.co/add_bill/"),
+        SAVE_REGISTER_ID("http://www.blue.acktos.com.co/edit_mobile_driver/"),
         TEST_POST("http://www.blue.acktos.com.co/print_post/");
 
         private final String url;

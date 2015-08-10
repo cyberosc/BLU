@@ -21,6 +21,7 @@ public class Driver {
     public static final String KEY_CC="cc";
     public static final String KEY_BRAND="brand";
     public static final String KEY_PHONE="phone";
+    public static final String KEY_REGISTER_ID="mobile_id";
 
 
     public static final String KEY_EMAIL="email";

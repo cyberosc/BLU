@@ -19,11 +19,12 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
 
 
     private List<Service> services;
+    private static OnRecyclerViewClickListener onRecyclerViewClickListener;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView username;
-        public TextView pickupAdress;
+        public TextView pickupAddress;
         public TextView arrivalAddress;
         public CardView serviceCard;
 
@@ -32,16 +33,23 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
             super(itemView);
             serviceCard=(CardView)itemView.findViewById(R.id.service_card);
             username=(TextView)itemView.findViewById(R.id.lbl_user_name);
-            pickupAdress=(TextView)itemView.findViewById(R.id.lbl_pickup_address);
+            pickupAddress=(TextView)itemView.findViewById(R.id.lbl_pickup_address);
             arrivalAddress=(TextView)itemView.findViewById(R.id.lbl_arrival_address);
+
+            itemView.setOnClickListener(this);
 
         }
 
+        @Override
+        public void onClick(View view) {
+            onRecyclerViewClickListener.onRecyclerViewClick(view, this.getLayoutPosition());
+        }
     }
 
-    public ServiceAdapter(List<Service> services){
+    public ServiceAdapter(List<Service> services,OnRecyclerViewClickListener onRecyclerViewClick){
 
         this.services=services;
+        this.onRecyclerViewClickListener=onRecyclerViewClick;
     }
 
     @Override
@@ -61,8 +69,16 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
 
         viewHolder.username.setText(services.get(i).username);
-        viewHolder.pickupAdress.setText(services.get(i).pickupAdrress);
-        viewHolder.arrivalAddress.setText(services.get(i).arrivalAdress);
+        viewHolder.pickupAddress.setText(services.get(i).pickupAddress);
+        viewHolder.arrivalAddress.setText(services.get(i).arrivalAddress);
+    }
+
+
+
+    public interface OnRecyclerViewClickListener
+    {
+
+        public void onRecyclerViewClick(View v, int position);
     }
 
 }

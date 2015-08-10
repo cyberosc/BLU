@@ -1,6 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:id="@+id/map_tracker"
-    tools:context="com.acktos.blu.presentation.MapTrackerActivity"
-    android:name="com.google.android.gms.maps.SupportMapFragment" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map_tracker"
+        tools:context="com.acktos.blu.presentation.MapTrackerActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/arrival_card">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/ic_pickup"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:src="@mipmap/ic_pickup" />
+
+
+        <TextView
+            android:id="@+id/lbl_pickup_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ic_pickup"
+            android:layout_alignBottom="@+id/ic_pickup"
+            android:layout_toRightOf="@+id/ic_pickup"
+            android:gravity="center_vertical"
+            android:text="Cra 79 # 10 d 95 apto 604"/>
+
+        <ImageView
+            android:id="@+id/ic_arrival"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_below="@id/ic_pickup"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:src="@mipmap/ic_arrival" />
+
+        <TextView
+            android:id="@+id/lbl_arrival_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ic_arrival"
+            android:layout_alignTop="@id/ic_arrival"
+            android:layout_alignBottom="@+id/ic_arrival"
+            android:gravity="center_vertical"
+            android:text="Calle 57 b # 37 a 45 sur" />
+
+    </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <Button
+
+        android:id="@+id/btn_monitor_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/material_dark_gray"
+        android:text="@string/start"
+        android:layout_alignParentBottom="true"
+        android:background="@color/material_lime"
+        android:textStyle="bold"
+        android:onClick="changeStateTrack"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_monitor_service"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/service_card">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="7"
+            android:padding="16dp">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    style="@style/Base.TextAppearance.AppCompat.Small"
+                    android:textAllCaps="true"
+                    android:text="@string/speed"/>
+
+                <TextView
+                    android:id="@+id/lbl_speed"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    style="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:text="0 Km/h"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/material_dark_gray"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/Base.TextAppearance.AppCompat.Small"
+                    android:gravity="center_horizontal"
+                    android:textAllCaps="true"
+                    android:text="@string/distance"/>
+
+                <TextView
+                    android:id="@+id/lbl_distance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    style="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:text="0 Km"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+</RelativeLayout>

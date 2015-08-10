@@ -158,4 +158,66 @@ public class DriversController extends BaseController {
 
         return success;
     }
+
+    public String saveRegisterId(
+
+            final String registerId,
+            final Response.Listener<String> responseListener,
+            final Response.ErrorListener errorListener){
+
+
+        StringRequest jsonObjReq = new StringRequest(
+
+                Request.Method.POST,
+                API.SAVE_REGISTER_ID.getUrl(),
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG, response.toString());
+
+                        String code= getCodeRequest(response);
+
+                        if(code!=null) {
+                            if (code.equals(SUCCESS_CODE)) {
+
+                                Log.i(TAG,"Register id saved successful");
+                                responseListener.onResponse(SUCCESS_CODE);
+                            } else {
+                                Log.i(TAG,"Register is NOT saved");
+                                responseListener.onResponse(FAILED_CODE);
+                            }
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        errorListener.onErrorResponse(error);
+                    }
+                }){
+
+            @Override
+            protected Map<String, String> getParams() {
+
+                Driver driver=getDriver();
+
+                Map<String, String> params = new HashMap<>();
+
+                params.put(Driver.KEY_ID, driver.id);
+                params.put(Driver.KEY_REGISTER_ID, registerId);
+                params.put(Driver.KEY_ENCRYPT, Encrypt.md5(driver.id + registerId + BaseController.TOKEN));
+
+                return params;
+            }
+
+        };
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(jsonObjReq, TAG_DRIVER_LOGIN_REQUEST);
+        return null;
+    }
 }
